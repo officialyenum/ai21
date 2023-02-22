@@ -1,17 +1,13 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { useBody, useHeaders, useSummarize, useSummarizeBody } from './library'
-
-interface TextObject {
-    text: string | undefined,
-    type?: string
-    restaurant:  string | undefined,
-    review:  string | undefined
-}
-
-interface SummarizeResponse {
-    summaries: Array<TextObject>
-}
+import { 
+    useBody, 
+    useHeaders, 
+    useSummarize, 
+    useSummarizeBody, 
+    ISummaryBody, 
+    ISummarizeResponse 
+} from './library'
 
 export class AI21
 {
@@ -21,7 +17,7 @@ export class AI21
         this.token = token;
     }
 
-    validateSummarize(data?: TextObject){
+    validateSummarize(data?: ISummaryBody){
         if (!this.token) throw Error("Token Not Specified")
         if (!data) throw Error("Text and Type Not Specified")
         if (!data.type) throw Error("Type not specified")
@@ -33,12 +29,12 @@ export class AI21
 
     /**
      * 
-     * @param data 
+     * @param ISummaryBody
      * 
-     * @returns
+     * @returns ISummarizeResponse
      */
 
-    async summarize(data?: TextObject) {
+    async summarize(data?: ISummaryBody): Promise<ISummarizeResponse | undefined> {
         try {
             const resp = this.validateSummarize(data)
             const type:string = resp.data.type as string;
@@ -54,7 +50,7 @@ export class AI21
             }
             
         } catch (error:any) {
-            return this.getResponse("failed", error.message, null)
+            return this.getResponse("failed", error.message, undefined)
         }
         
     }
@@ -67,20 +63,11 @@ export class AI21
         }
     }
 }
-
-export function helloWorld() {
-    const message = 'Hello World from my example modern npm package!';
-    return message;
-}
-
-export function goodBye() {
-    const message = 'Goodbye from my example modern npm package!';
-    return message;
-}
-
 export default {
-    helloWorld,
-    goodBye,
+    useBody,
+    useHeaders,
+    useSummarize,
+    useSummarizeBody,
     AI21
 };
 
