@@ -1,10 +1,8 @@
-AI 21
+# AI 21
 
 <p align="center"><a href="https://studio.ai21.com/overview" target="_blank"><img src="https://lh3.googleusercontent.com/NIxR42H8Dw-Eduv8vQMxmev5ZXskc7mzU1tqJHHiVxFPGGxp2z-olNA8PtNzD8wJscI5j6n4xLz3cqaTeWWLotKwRyGIsTXJa2zYU3XwvDc85_mHaA" width="400"></a></p>
 
 <div align="center">
-    # AI21
-
     This is an AI21 Labs npm package to use in your node projects
 
     > Light and fully documented for TS and JS
