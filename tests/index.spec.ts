@@ -1,8 +1,6 @@
 import 'mocha';
 import { assert } from 'chai';
-
 import { AI21 } from '../src';
-import npmPackage from '../src';
 import dotenv from 'dotenv';
 dotenv.config();
 

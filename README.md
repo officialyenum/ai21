@@ -1,11 +1,14 @@
 AI 21
 
 <p align="center"><a href="https://studio.ai21.com/overview" target="_blank"><img src="https://lh3.googleusercontent.com/NIxR42H8Dw-Eduv8vQMxmev5ZXskc7mzU1tqJHHiVxFPGGxp2z-olNA8PtNzD8wJscI5j6n4xLz3cqaTeWWLotKwRyGIsTXJa2zYU3XwvDc85_mHaA" width="400"></a></p>
-# AI21
 
-This is an AI21 Labs npm package to use in your node projects
+<div align="center">
+    # AI21
 
-> Light and fully documented for TS and JS
+    This is an AI21 Labs npm package to use in your node projects
+
+    > Light and fully documented for TS and JS
+</div>
 
 <div align="center">
 
@@ -97,14 +100,11 @@ This is an AI21 Labs npm package to use in your node projects
 
 #### How to construct
 
-Age constructor is exactly the same as [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date)'s
-Cause age is determined by underlying date.
-
 Ways to construct
 
 1. Initialize
    ```javascript
-   const token = "khabhbbaehbhrbhvha"; // pass your AI21 Labs AI Token Here
+   const token = "pDsubXXXXXXXXXXXXXXXXXXXXXXYSg8y"; // pass your AI21 Labs AI Token Here
    const ai = new AI21(token);
    ```
 2. Summarize
