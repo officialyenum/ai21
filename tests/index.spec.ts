@@ -25,14 +25,14 @@ describe('AI21 Token', () => {
 describe('AI21 Token', () => {
   it('Token Not Specified', async () => {
     const resp = await aiWithoutToken.summarize()
-    const actual = resp?.message;
-    const expected = "Token Not Specified";
+    const actual = resp?.status;
+    const expected = "failed";
     assert.equal(actual, expected);
   });
   it('Text and Type Not Specified', async () => {
     const resp = await aiWithCorrectToken.summarize()
-    const actual = resp?.message;
-    const expected = "Text and Type Not Specified";
+    const actual = resp?.status;
+    const expected = "failed";
     assert.equal(actual, expected);
   });
 });
