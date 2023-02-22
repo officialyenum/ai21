@@ -2,10 +2,13 @@ import axios, { AxiosResponse } from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { useBody, useHeaders, useSummarize } from './constants'
+import { useBody, useHeaders, useSummarize, useSummarizeBody } from './library'
 
 interface TextObject {
-    text: string
+    text: string | undefined,
+    type?: string
+    restaurant:  string | undefined,
+    review:  string | undefined
 }
 interface SummarizeResponse {
     summaries: Array<TextObject>
@@ -13,36 +16,56 @@ interface SummarizeResponse {
 
 export class AI21
 {
-    token: string;
+    token?: string;
 
-    constructor(token: string) {
+    constructor(token?: string) {
         this.token = token;
     }
 
-    async summarize(text: string) {
+    validateSummarize(data?: TextObject){
+        if (!this.token) throw Error("Token Not Specified")
+        if (!data) throw Error("Text and Type Not Specified")
+        if (!data.type) throw Error("Type not specified")
+        return {
+            data,
+            token: this.token
+        }
+    }
+
+    /**
+     * 
+     * @param data 
+     * 
+     * @returns
+     */
+
+    async summarize(data?: TextObject) {
         try {
-            if (!this.token) throw Error("Token Not Specified");
-            if (!text) throw Error("Text not specified")
-            const summarizeData = useSummarize();
-            const body = useBody(text);
+            const resp = this.validateSummarize(data)
+            const type:string = resp.data.type as string;
+            const token:string = resp.token as string;
+            const summarizeData = useSummarize(type);
+            const body = useSummarizeBody(resp.data);
 
             const response:AxiosResponse = await axios.post(summarizeData.url, body,
-                {headers: useHeaders(this.token)});
+                {headers: useHeaders(token)});
         
             if (response) {
-                return {
-                    status: "success",
-                    data: response['data']['summaries']
-                }
+                this.getResponse("success", "Summaries Retrieved Successfully", response['data']['summaries'])
             }
             
         } catch (error:any) {
-            return {
-                status: "failed",
-                message: error.message as any
-            }
+            return this.getResponse("failed", error.message, null)
         }
         
+    }
+
+    getResponse(status: string, message: string, data: any){
+        return {
+            status,
+            message,
+            data
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 import 'mocha';
 import { assert } from 'chai';
 
-import { helloWorld, goodBye, AI21 } from '../src';
+import { AI21 } from '../src';
 import npmPackage from '../src';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -9,8 +9,9 @@ dotenv.config();
 const token:string = process.env.TOKEN as string;
 const aiWithWrongToken = new AI21('lorem_ipsum_token');
 const aiWithCorrectToken = new AI21(token);
+const aiWithoutToken = new AI21();
 
-describe('AI21 Summarize', () => {
+describe('AI21 Token', () => {
   it('Token is Correct', () => {
     const actual = token;
     const expected = aiWithCorrectToken.token;
@@ -23,36 +24,17 @@ describe('AI21 Summarize', () => {
     assert.notEqual(actual, expected);
   })
 })
-describe('NPM Package', () => {
-  it('should be an object', () => {
-    assert.isObject(npmPackage);
-  });
-
-  it('should have a helloWorld property', () => {
-    assert.property(npmPackage, 'helloWorld');
-  });
-});
-
-describe('Hello World Function', () => {
-  it('should be a function', () => {
-    assert.isFunction(helloWorld);
-  });
-
-  it('should return the hello world message', () => {
-    const expected = 'Hello World from my example modern npm package!';
-    const actual = helloWorld();
+describe('AI21 Token', () => {
+  it('Token Not Specified', async () => {
+    const resp = await aiWithoutToken.summarize()
+    const actual = resp?.message;
+    const expected = "Token Not Specified";
     assert.equal(actual, expected);
   });
-});
-
-describe('Goodbye Function', () => {
-  it('should be a function', () => {
-    assert.isFunction(goodBye);
-  });
-
-  it('should return the goodbye message', () => {
-    const expected = 'Goodbye from my example modern npm package!';
-    const actual = goodBye();
+  it('Text and Type Not Specified', async () => {
+    const resp = await aiWithCorrectToken.summarize()
+    const actual = resp?.message;
+    const expected = "Text and Type Not Specified";
     assert.equal(actual, expected);
   });
 });

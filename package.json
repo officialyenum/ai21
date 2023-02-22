@@ -1,6 +1,6 @@
 {
   "name": "@officialyenum/ai21",
-  "version": "0.0.2-development",
+  "version": "1.0.0",
   "description": "This is an AI21 Labs npm package to use in your node projects",
   "exports": {
     ".": {
