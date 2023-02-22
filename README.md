@@ -16,7 +16,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@officialyenum/ai21.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@officialyenum/ai21)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@officialyenum/ai21/badge.svg)](https://snyk.io/test/npm/@officialyenum/ai21)
 [![Test Status](https://github.com/officialyenum/ai21/actions/workflows/tests.yml/badge.svg)](https://github.com/officialyenum/ai21)
-[![Downloads](https://img.shields.io/npm/dt/age2.svg)](https://npmjs.com/package/age2)
+[![Downloads](https://img.shields.io/npm/dt/@officialyenum/ai21.svg)](https://npmjs.com/package/@officialyenum/ai21)
 [![last commit](https://img.shields.io/github/last-commit/officialyenum/ai21.svg)](https://github.com/officialyenum/ai21)
 [![codecov](https://img.shields.io/codecov/c/github/officialyenum/ai21/main.svg)](https://codecov.io/gh/officialyenum/ai21)
 [![GitHub](https://img.shields.io/github/stars/officialyenum/ai21.svg)](https://github.com/officialyenum/ai21)
