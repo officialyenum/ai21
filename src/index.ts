@@ -1,6 +1,4 @@
 import axios, { AxiosResponse } from 'axios';
-import dotenv from 'dotenv';
-dotenv.config();
 
 import { useBody, useHeaders, useSummarize, useSummarizeBody } from './library'
 
@@ -10,6 +8,7 @@ interface TextObject {
     restaurant:  string | undefined,
     review:  string | undefined
 }
+
 interface SummarizeResponse {
     summaries: Array<TextObject>
 }
@@ -78,7 +77,7 @@ export function goodBye() {
     const message = 'Goodbye from my example modern npm package!';
     return message;
 }
-  
+
 export default {
     helloWorld,
     goodBye,
