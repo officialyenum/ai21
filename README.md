@@ -184,13 +184,27 @@ Ways to construct
     // status : failed | success
     // message : "Summaries Retrieved Successfully" | error message
     // data : {
-    //  summaries : [
-    //       {
-    //         "text": "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood as the preferred protein source.\nThis paper reviews how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs.\nSome contemporary celebrity chefs are not fully aware of the rich Mediterranean culinary heritage."
-    //       }
+    //  "id": "dcbc5412-8d32-003c-63b1-3ca69086ce41",
+    //  "prompt": {
+    //    "text": "...Prompt shows here",
+    //    "tokens": [...]
+    //  },
+    //  "completions": [
+    //  {
+    //    "data": {
+    //      "text": " Excellent tacos. Very spicy salsa. Cramped inside.\n\n",
+    //      "tokens": [...]
+    //    },
+    //    "finishReason": {
+    //      "reason": "stop",
+    //      "sequence": "##"
+    //    }
+    //  }
     //  ]
-    // }
-    //
+    //}
+    console.log(resp.data["completions"][0]["data"]["text"].trim());
+    // The data you need in all of this is data["completions"][0]["data"]["text"]
+    //  ==> "Excellent tacos. Very spicy salsa. Cramped inside."
    ```
 
 #### Properties
