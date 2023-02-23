@@ -29,6 +29,7 @@
 ## Table of Contents
 
 -   [Technologies](#technologies)
+-   [Requirements](#requirements)
 -   [Getting Started](#getting-started)
     -   [Installation](#installation)
     -   [Usage](#usage)
@@ -48,10 +49,14 @@
 -   [Node JS](https://nodejs.org/) - Node.js® is an open-source, cross-platform JavaScript runtime environment.
 -   [AI21 LABS](https://studio.ai21.com/overview) - AI21 Labs is an AI lab & product company whose mission is to re-imagine the way we read and write by making the machine a thought partner to humans.
 
+## Requirements
+-   [Node JS](https://nodejs.org/en/download/) - ">=16.x"
+-   [Npm](https://nodejs.org/en/download/) - ">=9.x"
+-   [Axios](https://www.npmjs.com/package/axios) - ">1.3.x"
 ## Getting Started
 
--  Please click [here](https://studio.ai21.com/overview) to register on AI21 Studio if you do not already have an account
--  Click on your profile image and Go To your account details  to get your api key
+-   Please click [here](https://studio.ai21.com/overview) to register on AI21 Studio if you do not already have an account
+-   Click on your profile image and Go To your account details  to get your api key
 
 <p align="center"><a href="https://studio.ai21.com/overview" target="_blank"><img src="https://res.cloudinary.com/yenum-dev/image/upload/v1677065723/chuckymagic/ai21-get-key-image_hmxmse.png" width="400"></a></p>
 
@@ -227,20 +232,20 @@ Ways to construct
 
 ### Testing
 
-- In this test, we use sinon to create a stub for the axios.post method so that we can control its behavior in our tests. We also use chai to make assertions about the expected behavior of the AI21 class.
+- In this test, I use sinon to create a stub for the axios.post method so that I can control its behavior in the tests. 
+- I also use chai to make assertions about the expected behavior of the AI21 class.
 
 - The beforeEach and afterEach hooks are used to create a new instance of the AI21 class and stub the axios.post method for each test, respectively.
 
-- We then have Six test cases:
+- We have Six test cases:
+  - Test that the summarize method should return a failed response if the token is not initialized.
+  - Test that the summarize method should return a failed response if the data is not specified.
+  - Test that the summarize method should return a failed response if the type is not specified in the data.
+  - Test that the summarize method should return a failed response if type is review and restaurant and review is not specified in the data
+  - Test that the summarize method returns a successful response if the request is successful.
+  - Test that the summarize method returns a failed response if the request fails.
 
-- - Test that the summarize method should return a failed response if the token is not initialized.
-- - Test that the summarize method should return a failed response if the data is not specified.
-- - Test that the summarize method should return a failed response if the type is not specified in the data.
-- - Test that the summarize method should return a failed response if type is review and restaurant and review is not specified in the data
-- - Test that the summarize method returns a successful response if the request is successful.
-- - Test that the summarize method returns a failed response if the request fails.
-
-- In each test, we use chai assertions to check that the method behaves as expected, based on the inputs and the stubbed behavior of axios.post.
+- In each test, I use chai assertions to check that the method behaves as expected, based on the inputs and the stubbed behavior of axios.post.
 
 
 ### Documentation
