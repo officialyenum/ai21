@@ -30,7 +30,7 @@ export const usePrompt = (prompt:string) => {
 export const useSummarizeBody = (data:any) => {
   if (data.type && data.type === SummarizeType.REVIEWS) {
       if (!data.restaurant || !data.review) {
-          throw new Error("Restaurant and Review  must be specified if Summarize type is reviews");
+          throw new Error("Restaurant and Review must be specified if Summarize type is reviews");
       }
       return getRestaurantReviewPrompt(data.restaurant, data.review);
   }

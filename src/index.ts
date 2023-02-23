@@ -19,7 +19,7 @@ export class AI21
     }
 
     validateSummarize(data?: ISummaryBody){
-        if (!this.token) throw Error("Token Not Specified")
+        if (!this.token) throw Error("Token Not Initialized")
         if (!data) throw Error("Data Not Specified")
         if (!data.type) throw Error("Type not specified")
         return {

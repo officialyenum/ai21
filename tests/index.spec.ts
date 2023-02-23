@@ -19,9 +19,9 @@ describe('AI21', () => {
       axiosPostStub.restore();
     });
 
-    it('should return a failed response if token is not specified', async () => {
+    it('should return a failed response if token is not initialized', async () => {
       ai21 = new AI21();
-      const errorMessage = 'Token Not Specified';
+      const errorMessage = 'Token Not Initialized';
       axiosPostStub.rejects(new Error(errorMessage));
 
       const response = await ai21.summarize({ type: 'text', text: 'Some text to summarize' });
@@ -47,6 +47,17 @@ describe('AI21', () => {
       axiosPostStub.rejects(new Error(errorMessage));
 
       const response = await ai21.summarize({ text: 'Some text to summarize' });
+
+      expect(response.status).to.equal('failed');
+      expect(response.message).to.equal(errorMessage);
+      expect(response.data).to.be.undefined;
+    });
+
+    it('should return a failed response if type is review and restaurant and review is not specified in the data', async () => {
+      const errorMessage = 'Restaurant and Review must be specified if Summarize type is reviews';
+      axiosPostStub.rejects(new Error(errorMessage));
+
+      const response = await ai21.summarize({ type: 'reviews' });
 
       expect(response.status).to.equal('failed');
       expect(response.message).to.equal(errorMessage);

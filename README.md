@@ -231,11 +231,12 @@ Ways to construct
 
 - The beforeEach and afterEach hooks are used to create a new instance of the AI21 class and stub the axios.post method for each test, respectively.
 
-- We then have five test cases:
+- We then have Six test cases:
 
-- - Test that the summarize method throws an error if the token is not specified.
-- - Test that the summarize method throws an error if the data is not specified.
-- - Test that the summarize method throws an error if the type is not specified in the data.
+- - Test that the summarize method should return a failed response if the token is not initialized.
+- - Test that the summarize method should return a failed response if the data is not specified.
+- - Test that the summarize method should return a failed response if the type is not specified in the data.
+- - Test that the summarize method should return a failed response if type is review and restaurant and review is not specified in the data
 - - Test that the summarize method returns a successful response if the request is successful.
 - - Test that the summarize method returns a failed response if the request fails.
 
