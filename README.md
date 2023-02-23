@@ -172,15 +172,16 @@ Ways to construct
    
     const resp:ISummarizeResponse | undefined = await ai.summarize(data);
     console.log(resp);
-    // {
-    //     "status": "success",
-    //     "message": "Summaries Retrieved Successfully",
-    //     "data": [
+    // status : failed | success
+    // message : "Summaries Retrieved Successfully" | error message
+    // data : {
+    //  summaries : [
     //       {
     //         "text": "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood as the preferred protein source.\nThis paper reviews how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs.\nSome contemporary celebrity chefs are not fully aware of the rich Mediterranean culinary heritage."
     //       }
-    //     ]
-    //  }
+    //  ]
+    // }
+    //
    ```
 
 #### Properties
