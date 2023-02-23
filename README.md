@@ -86,15 +86,18 @@
 
 1. ES Modules
    ```javascript
+    // Javascript Sample
     import { AI21 } from "@officialyenum/ai21";
    ```
    ```typescript
+    // Typescript Sample
     import { AI21 } from "@officialyenum/ai21";
     import { ISummarizeResponse, ISummaryBody } from '@officialyenum/ai21/lib/cjs/types/library';
    ```
 2. Common JS
    ```javascript
-   const { AI21 } = require("@officialyenum/ai21");
+    // Javascript Sample
+    const { AI21 } = require("@officialyenum/ai21");
    ```
 
 #### How to construct
