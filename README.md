@@ -211,7 +211,7 @@ Ways to construct
 
 1. `shows your token`
    ```javascript
-   console.log(ai.token); // khabhbbaehbhrbhvha
+   console.log(ai.token); // pDsubXXXXXXXXXXXXXXXXXXXXXXYSg8y
    ```
 
 ### Testing
