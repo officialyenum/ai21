@@ -1,7 +1,7 @@
 {
   "name": "@officialyenum/ai21",
   "version": "1.0.7-beta",
-  "description": "This is an AI21 Labs npm package to use in your node projects",
+  "description": "This is an AI21 Studio npm package to support javascript and typescript developers in building scalable & efficient applications powered by AI21's state of the art language models that can process any language comprehension or generation task.",
   "exports": {
     ".": {
       "import": {
@@ -61,7 +61,6 @@
   "devDependencies": {
     "@types/chai": "^4.3.3",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^18.14.0",
     "axios": "^1.3.3",
     "chai": "^4.3.6",
     "dotenv": "^16.0.3",

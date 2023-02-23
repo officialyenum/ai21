@@ -1,70 +1,38 @@
-import { ISummaryBody, ISummarizeResponse } from './library';
+interface TextObject {
+    text: string | undefined;
+    type?: string;
+    restaurant: string | undefined;
+    review: string | undefined;
+}
 export declare class AI21 {
     token?: string;
     constructor(token?: string);
-    validateSummarize(data?: ISummaryBody): {
-        data: ISummaryBody;
+    validateSummarize(data?: TextObject): {
+        data: TextObject;
         token: string;
     };
     /**
      *
-     * @param ISummaryBody
+     * @param data
      *
-     * @returns ISummarizeResponse
+     * @returns
      */
-    summarize(data?: ISummaryBody): Promise<ISummarizeResponse | undefined>;
+    summarize(data?: TextObject): Promise<{
+        status: string;
+        message: string;
+        data: any;
+    } | undefined>;
     getResponse(status: string, message: string, data: any): {
         status: string;
         message: string;
         data: any;
     };
 }
+export declare function helloWorld(): string;
+export declare function goodBye(): string;
 declare const _default: {
-    useBody: (text: string) => {
-        text: string;
-    };
-    useHeaders: (token: string) => {
-        Authorization: string;
-        "Content-Type": string;
-    };
-    useSummarize: (type: string) => {
-        url: string;
-    };
-    useSummarizeBody: (data: any) => {
-        prompt: string;
-        numResults: number;
-        maxTokens: number;
-        temperature: number;
-        topKReturn: number;
-        topP: number;
-        countPenalty: {
-            scale: number;
-            applyToNumbers: boolean;
-            applyToPunctuations: boolean;
-            applyToStopwords: boolean;
-            applyToWhitespaces: boolean;
-            applyToEmojis: boolean;
-        };
-        frequencyPenalty: {
-            scale: number;
-            applyToNumbers: boolean;
-            applyToPunctuations: boolean;
-            applyToStopwords: boolean;
-            applyToWhitespaces: boolean;
-            applyToEmojis: boolean;
-        };
-        presencePenalty: {
-            scale: number;
-            applyToNumbers: boolean;
-            applyToPunctuations: boolean;
-            applyToStopwords: boolean;
-            applyToWhitespaces: boolean;
-            applyToEmojis: boolean;
-        };
-        stopSequences: string[];
-    } | {
-        text: any;
-    };
+    helloWorld: typeof helloWorld;
+    goodBye: typeof goodBye;
     AI21: typeof AI21;
 };
 export default _default;
