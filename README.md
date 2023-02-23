@@ -103,15 +103,18 @@ Ways to construct
 
 1. Initialize
    ```javascript
+   // Javascript Sample
    const token = "pDsubXXXXXXXXXXXXXXXXXXXXXXYSg8y"; // pass your AI21 Labs AI Token Here
    const ai = new AI21(token);
    ```
    ```typescript
+   // Typescript Sample
    const token = process.env.AI21_TOKEN  as string; // pass your AI21 Labs AI Token Here
    const ai = new AI21(token);
    ```
 2. Summarize
    ```javascript
+   // Javascript Sample
     const data = {
         text: "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood, above meat, as the preferred protein source. Fish and shellfish were used often since ancient times by wealthy classes as a kind of social marker, not only as a gastronomic delight, but also as a way to stay healthier. This paper reviews thoroughly how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs. Preferences for particular tastes and flavors, local traditions, myths and religious rites (such Lent, Shabbat and Ramadan that prohibited eating some foods and allowed others) as well as cultural exchanges between countries and civilizations (with the incorporation of new ingredients and culinary techniques), have shaped the Mediterranean culinary customs along the history. Such traditions are reflected in many ancient writings, culinary literature and cookbooks. We will analyze some of these sources with special attention to those excerpts, anecdotes, cookbooks, recipes, cooks and even characters related to seafood. Knowledge and learning from our rich Mediterranean culinary heritage are important aspects to bear in mind. Whereas some contemporary celebrity chefs (and probably many diners) are not fully aware of such culinary legacy, others like Ferran Adri`a have recently recognized the importance of studying the past as a driver for creation and gastronomic innovation.",
         type: "wikipedia_article", // financial_report, academic_paper, reviews
@@ -129,6 +132,7 @@ Ways to construct
     //  }
    ```
    ``` typescript
+    // Typescript Sample
     const data:ISummaryBody = {
         text: "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood, above meat, as the preferred protein source. Fish and shellfish were used often since ancient times by wealthy classes as a kind of social marker, not only as a gastronomic delight, but also as a way to stay healthier. This paper reviews thoroughly how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs. Preferences for particular tastes and flavors, local traditions, myths and religious rites (such Lent, Shabbat and Ramadan that prohibited eating some foods and allowed others) as well as cultural exchanges between countries and civilizations (with the incorporation of new ingredients and culinary techniques), have shaped the Mediterranean culinary customs along the history. Such traditions are reflected in many ancient writings, culinary literature and cookbooks. We will analyze some of these sources with special attention to those excerpts, anecdotes, cookbooks, recipes, cooks and even characters related to seafood. Knowledge and learning from our rich Mediterranean culinary heritage are important aspects to bear in mind. Whereas some contemporary celebrity chefs (and probably many diners) are not fully aware of such culinary legacy, others like Ferran Adri`a have recently recognized the importance of studying the past as a driver for creation and gastronomic innovation.",
         type: "wikipedia_article", // financial_report, academic_paper, reviews
@@ -147,6 +151,7 @@ Ways to construct
    ```
 3. Summarize Restaurant Review
    ```javascript
+   // Javascript Sample
    const data = {
     restaurant: "La Taqueria",
     review: "La Taqueria is a tiny place with 3 long tables inside and 2 small tables outside. The inside is cramped, but the outside is pleasant. Unfortunately, we had to sit inside as all the outside tables were taken. The tacos are delicious and reasonably priced and the salsa is spicy and flavorful. Service was friendly. Aside from the seating, the only thing I didn't like was the lack of parking - we had to walk six blocks to find a spot"
@@ -164,6 +169,7 @@ Ways to construct
     //
    ```
    ```typescript
+   // Typescript Sample
    const data:ISummaryBody = {
     restaurant: "La Taqueria",
     review: "La Taqueria is a tiny place with 3 long tables inside and 2 small tables outside. The inside is cramped, but the outside is pleasant. Unfortunately, we had to sit inside as all the outside tables were taken. The tacos are delicious and reasonably priced and the salsa is spicy and flavorful. Service was friendly. Aside from the seating, the only thing I didn't like was the lack of parking - we had to walk six blocks to find a spot"
