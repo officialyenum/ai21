@@ -32,7 +32,7 @@ export const useSummarizeBody = (data:any) => {
       if (!data.restaurant || !data.review) {
           throw new Error("Restaurant and Review  must be specified if Summarize type is reviews");
       }
-      return getReviewPrompt(data.restaurant, data.review);
+      return getRestaurantReviewPrompt(data.restaurant, data.review);
   }
   return {
       text: data.text,
@@ -51,7 +51,7 @@ export const useSummarize = (type:string) => {
 }
 
 
-export const getReviewPrompt = (restaurant:string, review: string) => {
+export const getRestaurantReviewPrompt = (restaurant:string, review: string) => {
     return {
         "prompt": `Summarize the following restaurant review\nRestaurant: Luigi's\n\nReview: We were passing through SF on a Thursday afternoon and wanted some Italian food. We passed by a couple places which were packed until finally stopping at Luigi's, mainly because it was a little less crowded and the people seemed to be mostly locals. We ordered the tagliatelle and mozzarella caprese. The tagliatelle were a work of art - the pasta was just right and the tomato sauce with fresh basil was perfect. The caprese was OK but nothing out of the ordinary. Service was slow at first but overall it was fine. Other than that - Luigi's great experience!\n\nSummary: Local spot. Not crowded. Excellent tagliatelle with tomato sauce. Service slow at first.\n\n##\n\nSummarize the following restaurant review\nRestaurant: ${restaurant}\n\nReview: ${review}\n\nSummary:`,
         "numResults": 1,

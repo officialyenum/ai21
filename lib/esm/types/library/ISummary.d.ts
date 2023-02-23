@@ -1,10 +1,14 @@
 export interface ISummaryBody {
-    text: string | undefined;
+    text?: string | undefined;
     type?: string;
-    restaurant: string | undefined;
-    review: string | undefined;
+    restaurant?: string | undefined;
+    review?: string | undefined;
 }
 export interface ISummarizeResponse {
-    summaries: Array<ISummaryBody>;
+    status: string;
+    message: string;
+    data?: {
+        summaries: Array<ISummaryBody> | [];
+    };
 }
 //# sourceMappingURL=ISummary.d.ts.map

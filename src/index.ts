@@ -6,7 +6,8 @@ import {
     useSummarize, 
     useSummarizeBody, 
     ISummaryBody, 
-    ISummarizeResponse 
+    ISummarizeResponse, 
+    SummarizeType
 } from './library'
 
 export class AI21
@@ -19,7 +20,7 @@ export class AI21
 
     validateSummarize(data?: ISummaryBody){
         if (!this.token) throw Error("Token Not Specified")
-        if (!data) throw Error("Text and Type Not Specified")
+        if (!data) throw Error("Data Not Specified")
         if (!data.type) throw Error("Type not specified")
         return {
             data,
@@ -44,11 +45,9 @@ export class AI21
 
             const response:AxiosResponse = await axios.post(summarizeData.url, body,
                 {headers: useHeaders(token)});
-        
-            if (response) {
-                this.getResponse("success", "Summaries Retrieved Successfully", response['data']['summaries'])
-            }
             
+            if (response) return this.getResponse("success", "Summaries Retrieved Successfully", response['data'])
+            return this.getResponse("failed", "unknown error", undefined)
         } catch (error:any) {
             return this.getResponse("failed", error.message, undefined)
         }

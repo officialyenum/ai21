@@ -1,4 +1,4 @@
-import { ISummaryBody } from './library';
+import { ISummaryBody, ISummarizeResponse } from './library';
 export declare class AI21 {
     token?: string;
     constructor(token?: string);
@@ -8,15 +8,11 @@ export declare class AI21 {
     };
     /**
      *
-     * @param data
+     * @param ISummaryBody
      *
-     * @returns
+     * @returns ISummarizeResponse
      */
-    summarize(data?: ISummaryBody): Promise<{
-        status: string;
-        message: string;
-        data: any;
-    } | undefined>;
+    summarize(data?: ISummaryBody): Promise<ISummarizeResponse | undefined>;
     getResponse(status: string, message: string, data: any): {
         status: string;
         message: string;
