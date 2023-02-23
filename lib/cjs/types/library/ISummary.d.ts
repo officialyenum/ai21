@@ -7,8 +7,6 @@ export interface ISummaryBody {
 export interface ISummarizeResponse {
     status: string;
     message: string;
-    data?: {
-        summaries: Array<ISummaryBody> | [];
-    };
+    data?: any | undefined;
 }
 //# sourceMappingURL=ISummary.d.ts.map

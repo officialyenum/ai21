@@ -53,7 +53,7 @@ export declare const useSummarizeBody: (data: any) => {
 export declare const useSummarize: (type: string) => {
     url: string;
 };
-export declare const getReviewPrompt: (restaurant: string, review: string) => {
+export declare const getRestaurantReviewPrompt: (restaurant: string, review: string) => {
     prompt: string;
     numResults: number;
     maxTokens: number;
