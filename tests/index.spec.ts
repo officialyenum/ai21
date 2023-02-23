@@ -1,38 +1,78 @@
 import 'mocha';
-import { assert } from 'chai';
+import { assert, expect } from 'chai';
+import sinon from "sinon";
+import axios from 'axios';
 import { AI21 } from '../src';
-import dotenv from 'dotenv';
-dotenv.config();
 
-const token:string = process.env.TOKEN as string;
-const aiWithWrongToken = new AI21('lorem_ipsum_token');
-const aiWithCorrectToken = new AI21(token);
-const aiWithoutToken = new AI21();
 
-describe('AI21 Token', () => {
-  it('Token is Correct', () => {
-    const actual = token;
-    const expected = aiWithCorrectToken.token;
-    assert.equal(actual, expected);
-  })
+describe('AI21', () => {
+  describe('summarize', () => {
+    let ai21:any;
+    let axiosPostStub:any;
 
-  it('Token is Incorrect', () => {
-    const actual = token;
-    const expected = aiWithWrongToken.token;
-    assert.notEqual(actual, expected);
-  })
-})
-describe('AI21 Token', () => {
-  it('Token Not Specified', async () => {
-    const resp = await aiWithoutToken.summarize()
-    const actual = resp?.status;
-    const expected = "failed";
-    assert.equal(actual, expected);
-  });
-  it('Text and Type Not Specified', async () => {
-    const resp = await aiWithCorrectToken.summarize()
-    const actual = resp?.status;
-    const expected = "failed";
-    assert.equal(actual, expected);
+    beforeEach(() => {
+      ai21 = new AI21('test_token');
+      axiosPostStub = sinon.stub(axios, 'post');
+    });
+
+    afterEach(() => {
+      axiosPostStub.restore();
+    });
+
+    it('should return a failed response if token is not specified', async () => {
+      ai21 = new AI21();
+      const errorMessage = 'Token Not Specified';
+      axiosPostStub.rejects(new Error(errorMessage));
+
+      const response = await ai21.summarize({ type: 'text', text: 'Some text to summarize' });
+
+      expect(response.status).to.equal('failed');
+      expect(response.message).to.equal(errorMessage);
+      expect(response.data).to.be.undefined;
+    });
+
+    it('should return a failed response if data is not specified', async () => {
+      const errorMessage = 'Data Not Specified';
+      axiosPostStub.rejects(new Error(errorMessage));
+
+      const response = await ai21.summarize();
+
+      expect(response.status).to.equal('failed');
+      expect(response.message).to.equal(errorMessage);
+      expect(response.data).to.be.undefined;
+    });
+
+    it('should return a failed response if type is not specified in the data', async () => {
+      const errorMessage = 'Type not specified';
+      axiosPostStub.rejects(new Error(errorMessage));
+
+      const response = await ai21.summarize({ text: 'Some text to summarize' });
+
+      expect(response.status).to.equal('failed');
+      expect(response.message).to.equal(errorMessage);
+      expect(response.data).to.be.undefined;
+    });
+
+    it('should return a successful response if the request is successful', async () => {
+      const responseData = { summaries : [{text : "Summarized Text goes here"}] };
+      axiosPostStub.resolves({ data: responseData });
+
+      const response = await ai21.summarize({ type: 'text', text: 'Some text to summarize' });
+
+      expect(response.status).to.equal('success');
+      expect(response.message).to.equal('Summaries Retrieved Successfully');
+      expect(response.data).to.deep.equal(responseData);
+    });
+
+    it('should return a failed response if the request fails', async () => {
+      const errorMessage = 'Failed to retrieve summaries';
+      axiosPostStub.rejects(new Error(errorMessage));
+
+      const response = await ai21.summarize({ type: 'text', text: 'Some text to summarize' });
+
+      expect(response.status).to.equal('failed');
+      expect(response.message).to.equal(errorMessage);
+      expect(response.data).to.be.undefined;
+    });
   });
 });

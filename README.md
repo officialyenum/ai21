@@ -215,7 +215,20 @@ Ways to construct
    ```
 
 ### Testing
--   Unit Testing Implemented
+
+- In this test, we use sinon to create a stub for the axios.post method so that we can control its behavior in our tests. We also use chai to make assertions about the expected behavior of the AI21 class.
+
+- The beforeEach and afterEach hooks are used to create a new instance of the AI21 class and stub the axios.post method for each test, respectively.
+
+- We then have five test cases:
+
+- - Test that the summarize method throws an error if the token is not specified.
+- - Test that the summarize method throws an error if the data is not specified.
+- - Test that the summarize method throws an error if the type is not specified in the data.
+- - Test that the summarize method returns a successful response if the request is successful.
+- - Test that the summarize method returns a failed response if the request fails.
+
+- In each test, we use chai assertions to check that the method behaves as expected, based on the inputs and the stubbed behavior of axios.post.
 
 
 ### Documentation
