@@ -124,15 +124,14 @@ Ways to construct
     }
     const resp = await ai.summarize(data);
     console.log(resp);
-    // {
-    //     "status": "success",
-    //     "message": "Summaries Retrieved Successfully",
-    //     "data": [
-    //       {
-    //         "text": "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood as the preferred protein source.\nThis paper reviews how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs.\nSome contemporary celebrity chefs are not fully aware of the rich Mediterranean culinary heritage."
-    //       }
-    //     ]
-    //  }
+    // status : success | failed
+    // message : "Summaries Retrieved Successfully" | error message
+    // data : {
+    //  summaries : [
+    //      {text : "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood as the preferred protein source.\nThis paper reviews how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs.\nSome contemporary celebrity chefs are not fully aware of the rich Mediterranean culinary heritage."}
+    //  ]
+    // }
+    //
    ```
    ``` typescript
     // Typescript Sample
@@ -142,15 +141,14 @@ Ways to construct
     }
     const resp:ISummarizeResponse | undefined = await ai.summarize(data);
     console.log(resp);
-    // {
-    //     "status": "success",
-    //     "message": "Summaries Retrieved Successfully",
-    //     "data": [
-    //       {
-    //         "text": "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood as the preferred protein source.\nThis paper reviews how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs.\nSome contemporary celebrity chefs are not fully aware of the rich Mediterranean culinary heritage."
-    //       }
-    //     ]
-    //  }
+    // status : success | failed
+    // message : "Summaries Retrieved Successfully" | error message
+    // data : {
+    //  summaries : [
+    //      {text : "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood as the preferred protein source.\nThis paper reviews how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs.\nSome contemporary celebrity chefs are not fully aware of the rich Mediterranean culinary heritage."}
+    //  ]
+    // }
+    //
    ```
 3. Summarize Restaurant Review
    ```javascript
@@ -165,11 +163,24 @@ Ways to construct
     // status : success | failed
     // message : "Summaries Retrieved Successfully" | error message
     // data : {
-    //  summaries : [
-    //      {text : "Summarized Text goes here"}
+    //  "id": "dcbc5412-8d32-003c-63b1-3ca69086ce41",
+    //  "prompt": {
+    //    "text": "...Prompt shows here",
+    //    "tokens": [...]
+    //  },
+    //  "completions": [
+    //  {
+    //    "data": {
+    //      "text": " Excellent tacos. Very spicy salsa. Cramped inside.\n\n",
+    //      "tokens": [...]
+    //    },
+    //    "finishReason": {
+    //      "reason": "stop",
+    //      "sequence": "##"
+    //    }
+    //  }
     //  ]
-    // }
-    //
+    //}
    ```
    ```typescript
    // Typescript Sample
