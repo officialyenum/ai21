@@ -1,4 +1,4 @@
-import { IRewrite } from "./ISummary"
+import { IParaphrase, IRewrite } from "./ISummary"
 
 export enum SummarizeType {
   FINANCIAL_REPORT = 'financial_report',
@@ -78,6 +78,28 @@ export const useRewrite = () => {
       url: 'https://api.ai21.com/studio/v1/experimental/rewrite',
   }
 }
+
+/**
+ * 
+ * @param data 
+ * @returns 
+ */
+export const useParaphraseBody = (data:IParaphrase) => {
+  if (!data) throw new Error("Data Not Specified");
+  if (!data.text) throw new Error("Text Not Specified");
+  if (data.text && data.text?.length > 500) throw new Error("Text cannot be more than 500 characters");
+  return {
+      text: data.text,
+      style: data.style ?? 'general'
+  }
+}
+
+export const useParaphrase = () => {
+  return {
+      url: 'https://api.ai21.com/studio/v1/paraphrase',
+  }
+}
+
 
 
 export const getRestaurantReviewPrompt = (restaurant:string, review: string) => {

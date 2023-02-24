@@ -288,8 +288,16 @@ Ways to construct
       - ✔ should return a failed response if text is more than 500 characters
       - ✔ should return a successful response if the request is successful
       - ✔ should return a failed response if the request fails
+    - Paraphrase
+      - ✔ should return a failed response if token is not initialized
+      - ✔ should return a failed response if data is not specified
+      - ✔ should return a failed response if text is not specified in the data
+      - ✔ should return a failed response if text is more than 500 characters
+      - ✔ should return a successful response if the request is successful
+      - ✔ should return a failed response if the request fails
 
-  12 passing (34ms)
+
+  18 passing (69ms)
 
 - In each test, I use chai assertions to check that the method behaves as expected, based on the inputs and the stubbed behavior of axios.post.
 

@@ -10,6 +10,13 @@ export interface IRewrite {
     intent?: string | null,
 }
 
+export interface IParaphrase {
+    text: string | null,
+    style?: string | null,
+    spanStart?: number | null,
+    spanEnd?: number | null,
+}
+
 export interface AIResponse {
     status: string,
     message: string,

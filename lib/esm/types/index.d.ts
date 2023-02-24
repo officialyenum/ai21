@@ -1,4 +1,4 @@
-import { ISummaryBody, AIResponse, IRewrite } from './library';
+import { ISummaryBody, AIResponse, IRewrite, IParaphrase } from './library';
 export declare class AI21 {
     token?: string;
     constructor(token?: string);
@@ -13,6 +13,7 @@ export declare class AI21 {
      */
     summarize(data?: ISummaryBody): Promise<AIResponse | undefined>;
     rewrite(data: IRewrite): Promise<AIResponse | undefined>;
+    paraphrase(data: IParaphrase): Promise<AIResponse | undefined>;
     getResponse(status: string, message: string, data: any): {
         status: string;
         message: string;

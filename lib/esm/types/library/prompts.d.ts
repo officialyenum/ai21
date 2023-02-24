@@ -1,4 +1,4 @@
-import { IRewrite } from "./ISummary";
+import { IParaphrase, IRewrite } from "./ISummary";
 export declare enum SummarizeType {
     FINANCIAL_REPORT = "financial_report",
     ACADEMIC_PAPER = "academic_paper",
@@ -36,6 +36,18 @@ export declare const useRewriteBody: (data: IRewrite) => {
     intent: string;
 };
 export declare const useRewrite: () => {
+    url: string;
+};
+/**
+ *
+ * @param data
+ * @returns
+ */
+export declare const useParaphraseBody: (data: IParaphrase) => {
+    text: string;
+    style: string;
+};
+export declare const useParaphrase: () => {
     url: string;
 };
 export declare const getRestaurantReviewPrompt: (restaurant: string, review: string) => {

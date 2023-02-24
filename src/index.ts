@@ -10,7 +10,10 @@ import {
     SummarizeType,
     IRewrite,
     useRewrite,
-    useRewriteBody
+    useRewriteBody,
+    useParaphrase,
+    IParaphrase,
+    useParaphraseBody
 } from './library'
 
 export class AI21
@@ -64,6 +67,22 @@ export class AI21
                 {headers: useHeaders(token)});
             
             if (response) return this.getResponse("success", "Rewrite Retrieved Successfully", response['data'])
+            return this.getResponse("failed", "unknown error", null)
+        } catch (error:any) {
+            return this.getResponse("failed", error.message, null)
+        }
+    }
+
+    async paraphrase(data: IParaphrase): Promise<AIResponse | undefined> {
+        try {
+            const token:string = this.validate().token as string;
+            const paraphraseData = useParaphrase();
+            const body = useParaphraseBody(data);
+
+            const response:AxiosResponse = await axios.post(paraphraseData.url, body,
+                {headers: useHeaders(token)});
+            
+            if (response) return this.getResponse("success", "Paraphrase Retrieved Successfully", response['data'])
             return this.getResponse("failed", "unknown error", null)
         } catch (error:any) {
             return this.getResponse("failed", error.message, null)
