@@ -283,7 +283,7 @@
     // Typescript Sample
     const data:IParaphrase = {
         "text": "You can now use AI21 Studio to rewrite text.",
-        "intent": "general" // casual, formal, short
+        "style": "general" // casual, formal, short
     }
     const resp:AIResponse | undefined = await ai.rewrite(data);
     console.log(resp);
