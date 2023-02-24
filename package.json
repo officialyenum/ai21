@@ -1,6 +1,6 @@
 {
   "name": "@officialyenum/ai21",
-  "version": "1.1.1-beta",
+  "version": "1.1.2-beta",
   "description": "This is an AI21 Studio npm package to support javascript and typescript developers in building scalable & efficient applications powered by AI21's state of the art language models that can process any language comprehension or generation task.",
   "exports": {
     ".": {

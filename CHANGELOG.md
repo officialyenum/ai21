@@ -1,11 +1,11 @@
-#### 1.1.1-beta (2023-02-12)
+#### 1.1.2-beta (2023-02-12)
 
 ##### Other Changes
 
 * **rewrite:**  added Rewrite Prompts and Test Cases ([d68ff371](https://github.com/en1tan/paystack-node/commit/d68ff371a90b363ea087bbd5d7cfbece14ca216b))
 
 - ✍🏻 UPDATE(paraphrase): completed paraphrase, ready for testing to replace rewrite
-- 1.1.1-development
+- 1.1.2-beta
 - ✍🏻 UPDATE(type cast): changed ISummarizeResponse to AIResponse
 - ✍🏻 UPDATE(rewrite): wrote test cases for rewrite
 - 🐞 FIX(type issue fix):

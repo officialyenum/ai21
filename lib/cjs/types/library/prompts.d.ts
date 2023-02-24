@@ -31,10 +31,7 @@ export declare const useSummarize: (type: string) => {
  * @param data
  * @returns
  */
-export declare const useRewriteBody: (data: IRewrite) => {
-    text: string;
-    intent: string;
-};
+export declare const useRewriteBody: (data: IRewrite) => IRewrite;
 export declare const useRewrite: () => {
     url: string;
 };
@@ -43,10 +40,7 @@ export declare const useRewrite: () => {
  * @param data
  * @returns
  */
-export declare const useParaphraseBody: (data: IParaphrase) => {
-    text: string;
-    style: string;
-};
+export declare const useParaphraseBody: (data: IParaphrase) => IParaphrase;
 export declare const useParaphrase: () => {
     url: string;
 };

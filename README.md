@@ -107,7 +107,7 @@
 
 #### How to construct
 
-Ways to construct
+  - Ways to construct
 
 1. Initialize
    ```javascript
@@ -120,6 +120,7 @@ Ways to construct
    const token = process.env.AI21_TOKEN  as string; // pass your AI21 Labs AI Token Here
    const ai = new AI21(token);
    ```
+
 2. Summarize
    ```javascript
    // Javascript Sample
@@ -155,6 +156,7 @@ Ways to construct
     // }
     //
    ```
+
 3. Summarize Restaurant Review
    ```javascript
    // Javascript Sample
@@ -222,6 +224,7 @@ Ways to construct
     // The data you need in all of this is data["completions"][0]["data"]["text"]
     //  ==> "Excellent tacos. Very spicy salsa. Cramped inside."
    ```
+
 4. Rewrite
    ```javascript
    // Javascript Sample
@@ -253,6 +256,42 @@ Ways to construct
     // data : {
     //    "suggestions": [
     //      {"text": "AI21 Studio now allows you to rewrite text."},
+    //  ]
+    //}
+    //
+   ```
+
+5. Paraphrase
+   ```javascript
+   // Javascript Sample
+    const data = {
+        "text": "You can now use AI21 Studio to rewrite text.",
+        "style": "general" // casual, formal, short
+    }
+    const resp = await ai.rewrite(data);
+    console.log(resp);
+    // status : success | failed
+    // message : "Paraphrase Retrieved Successfully" | error message
+    // data : {
+    //    "suggestions": [
+    //      {"text": "AI21 Studio now allows you to paraphrase text."},
+    //  ]
+    //}
+    //
+   ```
+   ``` typescript
+    // Typescript Sample
+    const data:IParaphrase = {
+        "text": "You can now use AI21 Studio to rewrite text.",
+        "intent": "general" // casual, formal, short
+    }
+    const resp:AIResponse | undefined = await ai.rewrite(data);
+    console.log(resp);
+    // status : success | failed
+    // message : "Paraphrase Retrieved Successfully" | error message
+    // data : {
+    //    "suggestions": [
+    //      {"text": "AI21 Studio now allows you to paraphrase text."},
     //  ]
     //}
     //
