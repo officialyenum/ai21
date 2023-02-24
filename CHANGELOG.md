@@ -7,7 +7,7 @@
 - ✍🏻 UPDATE(rewrite): wrote test cases for rewrite
 - 🐞 FIX(type issue fix):
 - ✍🏻 UPDATE(summary): modified response for summary, summary restaurant review and rewrite
-- 1.0.1-beta
+- 1.1.1-beta
 
 #### 1.1.0 (2023-02-11)
 

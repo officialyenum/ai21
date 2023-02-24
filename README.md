@@ -144,7 +144,7 @@ Ways to construct
         text: "Olives, wheat and grapes have been the staple foods of the Mediterranean world, with seafood, above meat, as the preferred protein source. Fish and shellfish were used often since ancient times by wealthy classes as a kind of social marker, not only as a gastronomic delight, but also as a way to stay healthier. This paper reviews thoroughly how seafood has been present in the dietary practices of the Mediterranean people since ancient Egyptians up to the gastronomic discourse of some celebrated contemporary chefs. Preferences for particular tastes and flavors, local traditions, myths and religious rites (such Lent, Shabbat and Ramadan that prohibited eating some foods and allowed others) as well as cultural exchanges between countries and civilizations (with the incorporation of new ingredients and culinary techniques), have shaped the Mediterranean culinary customs along the history. Such traditions are reflected in many ancient writings, culinary literature and cookbooks. We will analyze some of these sources with special attention to those excerpts, anecdotes, cookbooks, recipes, cooks and even characters related to seafood. Knowledge and learning from our rich Mediterranean culinary heritage are important aspects to bear in mind. Whereas some contemporary celebrity chefs (and probably many diners) are not fully aware of such culinary legacy, others like Ferran Adri`a have recently recognized the importance of studying the past as a driver for creation and gastronomic innovation.",
         type: "wikipedia_article", // financial_report, academic_paper
     }
-    const resp:ISummarizeResponse | undefined = await ai.summarize(data);
+    const resp:AIResponse | undefined = await ai.summarize(data);
     console.log(resp);
     // status : success | failed
     // message : "Summaries Retrieved Successfully" | error message
@@ -195,7 +195,7 @@ Ways to construct
     type: "reviews",
    }
    
-    const resp:ISummarizeResponse | undefined = await ai.summarize(data);
+    const resp:AIResponse | undefined = await ai.summarize(data);
     console.log(resp);
     // status : success | failed
     // message : "Summaries Retrieved Successfully" | error message
@@ -273,21 +273,21 @@ Ways to construct
 - The beforeEach and afterEach hooks are used to create a new instance of the AI21 class and stub the axios.post method for each test, respectively.
 
 - We have Twelve test cases:
-  AI21
-    Summarize
-      ✔ should return a failed response if token is not initialized
-      ✔ should return a failed response if data is not specified
-      ✔ should return a failed response if type is not specified in the data
-      ✔ should return a failed response if type is review and restaurant and review is not specified in the data
-      ✔ should return a successful response if the request is successful
-      ✔ should return a failed response if the request fails
-    Rewrite
-      ✔ should return a failed response if token is not initialized
-      ✔ should return a failed response if data is not specified
-      ✔ should return a failed response if text is not specified in the data
-      ✔ should return a failed response if text is more than 500 characters
-      ✔ should return a successful response if the request is successful
-      ✔ should return a failed response if the request fails
+  - AI21
+    - Summarize
+      - ✔ should return a failed response if token is not initialized
+      - ✔ should return a failed response if data is not specified
+      - ✔ should return a failed response if type is not specified in the data
+      - ✔ should return a failed response if type is review and restaurant and review is not specified in the data
+      - ✔ should return a successful response if the request is successful
+      - ✔ should return a failed response if the request fails
+    - Rewrite
+      - ✔ should return a failed response if token is not initialized
+      - ✔ should return a failed response if data is not specified
+      - ✔ should return a failed response if text is not specified in the data
+      - ✔ should return a failed response if text is more than 500 characters
+      - ✔ should return a successful response if the request is successful
+      - ✔ should return a failed response if the request fails
 
   12 passing (34ms)
 
