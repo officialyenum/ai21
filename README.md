@@ -64,24 +64,24 @@
 
 - **Using `npm`**
   ```shell
-  npm i @officialyenum/ai21
+  npm i @officialyenum/ai21@1.1.2-beta
   ```
 - **Using `Yarn`**
   ```shell
-  yarn add @officialyenum/ai21
+  yarn add @officialyenum/ai21@1.1.2-beta
   ```
 - **Using `pnpm`**
   ```shell
-  pnpm add @officialyenum/ai21
+  pnpm add @officialyenum/ai21@1.1.2-beta
   ```
 - **Using `unpkg`**
   ```html
-    <script src="https://unpkg.com/browse/@officialyenum/ai21@0.0.2-development/lib/cjs/index.min.js"></script>
+    <script src="https://unpkg.com/browse/@officialyenum/ai21@@1.1.2-beta/lib/cjs/index.min.js"></script>
 
   ```
 - **Using `cdn jsdelivr`**
   ```html
-    <script src="https://cdn.jsdelivr.net/npm/@officialyenum/ai21@0.0.2-development/lib/cjs/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@officialyenum/ai21@@1.1.2-beta/lib/cjs/index.min.js"></script>
 
   ```
 
@@ -265,7 +265,7 @@
    ```javascript
    // Javascript Sample
     const data = {
-        "text": "You can now use AI21 Studio to rewrite text.",
+        "text": "La Taqueria is a tiny place with 3 long tables inside and 2 small tables outside. The inside is cramped, but the outside is pleasant. Unfortunately, we had to sit inside as all the outside tables were taken. The tacos are delicious and reasonably priced and the salsa is spicy and flavorful. Service was friendly. Aside from the seating, the only thing I didn't like was the lack of parking - we had to walk six blocks to find a spot",
         "style": "general" // casual, formal, short
     }
     const resp = await ai.rewrite(data);
@@ -274,15 +274,22 @@
     // message : "Paraphrase Retrieved Successfully" | error message
     // data : {
     //    "suggestions": [
-    //      {"text": "AI21 Studio now allows you to paraphrase text."},
+    //      {
+    //        "text": "There are 3 long tables inside and 2 small tables outside of La Taqueria. The inside is cramped, but the outside is charming. We had to sit inside since all of the outside tables were taken. In addition to the tasty tacos and the flavorful salsa, service was friendly. The only thing I didn't like was the lack of parking - we had to walk six blocks to find a spot."
+    //      },
+    //      {
+    //        "text": "Three long tables are inside the tiny Taqueria and two small tables are outside. While the inside is cramped, the outside is pleasant. Unfortunately, all the outside tables were taken. The tacos are delicious and reasonably priced, and the salsa is spicy and flavorful. We had good service. My only complaint aside from the seating was the lack of parking - we had to walk six blocks to find a spot."
+    //      },
+    //      {
+    //        "text": "There are three long tables inside and two small tables outside at La Taqueria. There are only three long tables inside, but there are two small ones outside. The inside is cramped, but the outside is lovely. All outside tables were full. The tacos were delicious and reasonably priced, and the salsa was spicy and flavorful. The service was friendly as well. The only thing I didn't like was the lack of parking, which meant we had to walk six blocks to find a parking spot."
+    //      },
     //  ]
     //}
-    //
    ```
    ``` typescript
     // Typescript Sample
     const data:IParaphrase = {
-        "text": "You can now use AI21 Studio to rewrite text.",
+        "text": "La Taqueria is a tiny place with 3 long tables inside and 2 small tables outside. The inside is cramped, but the outside is pleasant. Unfortunately, we had to sit inside as all the outside tables were taken. The tacos are delicious and reasonably priced and the salsa is spicy and flavorful. Service was friendly. Aside from the seating, the only thing I didn't like was the lack of parking - we had to walk six blocks to find a spot",
         "style": "general" // casual, formal, short
     }
     const resp:AIResponse | undefined = await ai.rewrite(data);
@@ -291,10 +298,20 @@
     // message : "Paraphrase Retrieved Successfully" | error message
     // data : {
     //    "suggestions": [
-    //      {"text": "AI21 Studio now allows you to paraphrase text."},
+    //      {
+    //        "text": "There are 3 long tables inside and 2 small tables outside of La Taqueria. The inside is cramped, but the outside is charming. We had to sit inside since all of the outside tables were taken. In addition to the tasty tacos and the flavorful salsa, service was friendly. The only thing I didn't like was the lack of parking - we had to walk six blocks to find a spot."
+    //      },
+    //      {
+    //        "text": "Three long tables are inside the tiny Taqueria and two small tables are outside. While the inside is cramped, the outside is pleasant. Unfortunately, all the outside tables were taken. The tacos are delicious and reasonably priced, and the salsa is spicy and flavorful. We had good service. My only complaint aside from the seating was the lack of parking - we had to walk six blocks to find a spot."
+    //      },
+    //      {
+    //        "text": "There are three long tables inside and two small tables outside at La Taqueria. There are only three long tables inside, but there are two small ones outside. The inside is cramped, but the outside is lovely. All outside tables were full. The tacos were delicious and reasonably priced, and the salsa was spicy and flavorful. The service was friendly as well. The only thing I didn't like was the lack of parking, which meant we had to walk six blocks to find a parking spot."
+    //      },
     //  ]
     //}
     //
+
+      
    ```
 
 #### Properties
