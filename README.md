@@ -222,6 +222,41 @@ Ways to construct
     // The data you need in all of this is data["completions"][0]["data"]["text"]
     //  ==> "Excellent tacos. Very spicy salsa. Cramped inside."
    ```
+4. Rewrite
+   ```javascript
+   // Javascript Sample
+    const data = {
+        "text": "You can now use AI21 Studio to rewrite text.",
+        "intent": "general" // casual, formal, short
+    }
+    const resp = await ai.rewrite(data);
+    console.log(resp);
+    // status : success | failed
+    // message : "Rewrite Retrieved Successfully" | error message
+    // data : {
+    //    "suggestions": [
+    //      {"text": "AI21 Studio now allows you to rewrite text."},
+    //  ]
+    //}
+    //
+   ```
+   ``` typescript
+    // Typescript Sample
+    const data:IRewrite = {
+        "text": "You can now use AI21 Studio to rewrite text.",
+        "intent": "general" // casual, formal, short
+    }
+    const resp:AIResponse | undefined = await ai.rewrite(data);
+    console.log(resp);
+    // status : success | failed
+    // message : "Rewrite Retrieved Successfully" | error message
+    // data : {
+    //    "suggestions": [
+    //      {"text": "AI21 Studio now allows you to rewrite text."},
+    //  ]
+    //}
+    //
+   ```
 
 #### Properties
 
@@ -237,13 +272,24 @@ Ways to construct
 
 - The beforeEach and afterEach hooks are used to create a new instance of the AI21 class and stub the axios.post method for each test, respectively.
 
-- We have Six test cases:
-  - Test that the summarize method should return a failed response if the token is not initialized.
-  - Test that the summarize method should return a failed response if the data is not specified.
-  - Test that the summarize method should return a failed response if the type is not specified in the data.
-  - Test that the summarize method should return a failed response if type is review and restaurant and review is not specified in the data
-  - Test that the summarize method returns a successful response if the request is successful.
-  - Test that the summarize method returns a failed response if the request fails.
+- We have Twelve test cases:
+  AI21
+    Summarize
+      ✔ should return a failed response if token is not initialized
+      ✔ should return a failed response if data is not specified
+      ✔ should return a failed response if type is not specified in the data
+      ✔ should return a failed response if type is review and restaurant and review is not specified in the data
+      ✔ should return a successful response if the request is successful
+      ✔ should return a failed response if the request fails
+    Rewrite
+      ✔ should return a failed response if token is not initialized
+      ✔ should return a failed response if data is not specified
+      ✔ should return a failed response if text is not specified in the data
+      ✔ should return a failed response if text is more than 500 characters
+      ✔ should return a successful response if the request is successful
+      ✔ should return a failed response if the request fails
+
+  12 passing (34ms)
 
 - In each test, I use chai assertions to check that the method behaves as expected, based on the inputs and the stubbed behavior of axios.post.
 

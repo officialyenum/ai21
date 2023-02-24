@@ -1,12 +1,17 @@
 export interface ISummaryBody {
-    text?: string | undefined,
+    text?: string | null,
     type?: string
-    restaurant?:  string | undefined,
-    review?:  string | undefined
+    restaurant?:  string | null,
+    review?:  string | null
 }
 
-export interface ISummarizeResponse {
+export interface IRewrite {
+    text: string | null,
+    intent?: string | null,
+}
+
+export interface AIResponse {
     status: string,
     message: string,
-    data?: any | undefined
+    data?: any | null
 }

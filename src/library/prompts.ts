@@ -1,9 +1,17 @@
+import { IRewrite } from "./ISummary"
 
 export enum SummarizeType {
   FINANCIAL_REPORT = 'financial_report',
   ACADEMIC_PAPER = 'academic_paper',
   REVIEWS = 'reviews',
   WIKIPEDIA_ARTICLE = 'wikipedia_article'
+}
+
+export enum RewriteType {
+  GENERAL = 'general',
+  CASUAL = 'casual',
+  FORMAL = 'formal',
+  SHORT = 'short'
 }
 
 export const SUMMARIZE_TEXT = ""
@@ -28,15 +36,15 @@ export const usePrompt = (prompt:string) => {
 }
 
 export const useSummarizeBody = (data:any) => {
+  if (!data) throw Error("Data Not Specified")
+  if (!data.type) throw Error("Type Not Specified")
   if (data.type && data.type === SummarizeType.REVIEWS) {
       if (!data.restaurant || !data.review) {
           throw new Error("Restaurant and Review must be specified if Summarize type is reviews");
       }
       return getRestaurantReviewPrompt(data.restaurant, data.review);
   }
-  return {
-      text: data.text,
-  }
+  return data
 }
 
 export const useSummarize = (type:string) => {
@@ -47,6 +55,27 @@ export const useSummarize = (type:string) => {
   }
   return {
       url: 'https://api.ai21.com/studio/v1/experimental/summarize',
+  }
+}
+
+/**
+ * 
+ * @param data 
+ * @returns 
+ */
+export const useRewriteBody = (data:IRewrite) => {
+  if (!data) throw new Error("Data Not Specified");
+  if (!data.text) throw new Error("Text Not Specified");
+  if (data.text && data.text?.length > 500) throw new Error("Text cannot be more than 500 characters");
+  return {
+      text: data.text,
+      intent: data.intent ?? 'general'
+  }
+}
+
+export const useRewrite = () => {
+  return {
+      url: 'https://api.ai21.com/studio/v1/experimental/rewrite',
   }
 }
 

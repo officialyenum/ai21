@@ -6,8 +6,11 @@ import {
     useSummarize, 
     useSummarizeBody, 
     ISummaryBody, 
-    ISummarizeResponse, 
-    SummarizeType
+    AIResponse, 
+    SummarizeType,
+    IRewrite,
+    useRewrite,
+    useRewriteBody
 } from './library'
 
 export class AI21
@@ -18,12 +21,10 @@ export class AI21
         this.token = token;
     }
 
-    validateSummarize(data?: ISummaryBody){
+
+    validate() {
         if (!this.token) throw Error("Token Not Initialized")
-        if (!data) throw Error("Data Not Specified")
-        if (!data.type) throw Error("Type not specified")
         return {
-            data,
             token: this.token
         }
     }
@@ -35,23 +36,38 @@ export class AI21
      * @returns ISummarizeResponse
      */
 
-    async summarize(data?: ISummaryBody): Promise<ISummarizeResponse | undefined> {
+    async summarize(data?: ISummaryBody): Promise<AIResponse | undefined> {
         try {
-            const resp = this.validateSummarize(data)
-            const type:string = resp.data.type as string;
-            const token:string = resp.token as string;
-            const summarizeData = useSummarize(type);
-            const body = useSummarizeBody(resp.data);
+            const token:string = this.validate().token as string;
+            const body = useSummarizeBody(data);
+            const summarizeData = useSummarize(body.type);
 
             const response:AxiosResponse = await axios.post(summarizeData.url, body,
                 {headers: useHeaders(token)});
             
             if (response) return this.getResponse("success", "Summaries Retrieved Successfully", response['data'])
-            return this.getResponse("failed", "unknown error", undefined)
+            return this.getResponse("failed", "unknown error", null)
         } catch (error:any) {
-            return this.getResponse("failed", error.message, undefined)
+            return this.getResponse("failed", error.message, null)
         }
         
+    }
+
+    async rewrite(data: IRewrite): Promise<AIResponse | undefined> {
+        try {
+
+            const token:string = this.validate().token as string;
+            const rewriteData = useRewrite();
+            const body = useRewriteBody(data);
+
+            const response:AxiosResponse = await axios.post(rewriteData.url, body,
+                {headers: useHeaders(token)});
+            
+            if (response) return this.getResponse("success", "Rewrite Retrieved Successfully", response['data'])
+            return this.getResponse("failed", "unknown error", null)
+        } catch (error:any) {
+            return this.getResponse("failed", error.message, null)
+        }
     }
 
     getResponse(status: string, message: string, data: any){

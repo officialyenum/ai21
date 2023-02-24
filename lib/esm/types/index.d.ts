@@ -1,9 +1,8 @@
-import { ISummaryBody, ISummarizeResponse } from './library';
+import { ISummaryBody, AIResponse, IRewrite } from './library';
 export declare class AI21 {
     token?: string;
     constructor(token?: string);
-    validateSummarize(data?: ISummaryBody): {
-        data: ISummaryBody;
+    validate(): {
         token: string;
     };
     /**
@@ -12,7 +11,8 @@ export declare class AI21 {
      *
      * @returns ISummarizeResponse
      */
-    summarize(data?: ISummaryBody): Promise<ISummarizeResponse | undefined>;
+    summarize(data?: ISummaryBody): Promise<AIResponse | undefined>;
+    rewrite(data: IRewrite): Promise<AIResponse | undefined>;
     getResponse(status: string, message: string, data: any): {
         status: string;
         message: string;
@@ -30,41 +30,7 @@ declare const _default: {
     useSummarize: (type: string) => {
         url: string;
     };
-    useSummarizeBody: (data: any) => {
-        prompt: string;
-        numResults: number;
-        maxTokens: number;
-        temperature: number;
-        topKReturn: number;
-        topP: number;
-        countPenalty: {
-            scale: number;
-            applyToNumbers: boolean;
-            applyToPunctuations: boolean;
-            applyToStopwords: boolean;
-            applyToWhitespaces: boolean;
-            applyToEmojis: boolean;
-        };
-        frequencyPenalty: {
-            scale: number;
-            applyToNumbers: boolean;
-            applyToPunctuations: boolean;
-            applyToStopwords: boolean;
-            applyToWhitespaces: boolean;
-            applyToEmojis: boolean;
-        };
-        presencePenalty: {
-            scale: number;
-            applyToNumbers: boolean;
-            applyToPunctuations: boolean;
-            applyToStopwords: boolean;
-            applyToWhitespaces: boolean;
-            applyToEmojis: boolean;
-        };
-        stopSequences: string[];
-    } | {
-        text: any;
-    };
+    useSummarizeBody: (data: any) => any;
     AI21: typeof AI21;
 };
 export default _default;
