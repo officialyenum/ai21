@@ -43,6 +43,8 @@ export const useSummarizeBody = (data:any) => {
           throw new Error("Restaurant and Review must be specified if Summarize type is reviews");
       }
       return getRestaurantReviewPrompt(data.restaurant, data.review);
+  }else{ 
+    if (data.text && data.text?.length > 10000) throw new Error("Text cannot be more than 10000 characters");
   }
   return data
 }

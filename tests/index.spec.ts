@@ -76,6 +76,17 @@ describe('AI21', () => {
       expect(response.data).to.be.null;
     });
 
+    it('should return a failed response if text is more than 10000 characters', async () => {
+      const errorMessage = 'Text cannot be more than 10000 characters';
+      axiosPostStub.rejects(new Error(errorMessage));
+
+      const response = await ai21.summarize({ type: 'text', text: generateChar(11000) });
+
+      expect(response.status).to.equal('failed');
+      expect(response.message).to.equal(errorMessage);
+      expect(response.data).to.be.null;
+    });
+
     it('should return a successful response if the request is successful', async () => {
       const responseData = { summaries : [{text : "Summarized Text goes here"}] };
       axiosPostStub.resolves({ data: responseData });

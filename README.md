@@ -335,6 +335,7 @@
       - ✔ should return a failed response if data is not specified
       - ✔ should return a failed response if type is not specified in the data
       - ✔ should return a failed response if type is review and restaurant and review is not specified in the data
+      - ✔ should return a failed response if text is more than 10000 characters
       - ✔ should return a successful response if the request is successful
       - ✔ should return a failed response if the request fails
     - Rewrite
@@ -353,7 +354,7 @@
       - ✔ should return a failed response if the request fails
 
 
-  18 passing (69ms)
+  19 passing (69ms)
 
 - In each test, I use chai assertions to check that the method behaves as expected, based on the inputs and the stubbed behavior of axios.post.
 

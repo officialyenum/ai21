@@ -6,6 +6,6 @@
     "module": "ESNext",
     "moduleResolution": "NodeNext",
     "outDir": "../lib/esm",
-    "declarationDir": "../lib/esm/types"
-  }
+    "declarationDir": "../lib/esm/types",
+  },
 }
