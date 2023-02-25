@@ -6,7 +6,7 @@
     ".": {
       "import": {
         "types": "./lib/esm/types/index.d.ts",
-        "default": "./lib/esm/index.mjs"
+        "default": "./lib/esm/index.js"
       },
       "require": {
         "types": "./lib/cjs/types/index.d.ts",
