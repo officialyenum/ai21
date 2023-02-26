@@ -37,6 +37,7 @@
         -   [How to construct](#how-to-construct)
         -   [Properties](#properties)
     -   [Testing](#testing)
+    -   [Playground](#playground)
     -   [Documentation](#documentation)
     -   [Deployment](#deployment)
     -   [Limitations](#limitations)
@@ -64,24 +65,26 @@
 
 - **Using `npm`**
   ```shell
-  npm i @officialyenum/ai21@1.1.2-beta
+  npm i @officialyenum/ai21 axios
   ```
 - **Using `Yarn`**
   ```shell
-  yarn add @officialyenum/ai21@1.1.2-beta
+  yarn add @officialyenum/ai21 axios
   ```
 - **Using `pnpm`**
   ```shell
-  pnpm add @officialyenum/ai21@1.1.2-beta
+  pnpm add @officialyenum/ai21 axios
   ```
 - **Using `unpkg`**
   ```html
-    <script src="https://unpkg.com/browse/@officialyenum/ai21@@1.1.2-beta/lib/cjs/index.min.js"></script>
+    <script src="https://unpkg.com/browse/axios@1.3.4/"></script>
+    <script src="https://unpkg.com/browse/@officialyenum/ai21@@1.2.0/lib/cjs/index.min.js"></script>
 
   ```
 - **Using `cdn jsdelivr`**
   ```html
-    <script src="https://cdn.jsdelivr.net/npm/@officialyenum/ai21@@1.1.2-beta/lib/cjs/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.3.4/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@officialyenum/ai21@@1.2.0/lib/cjs/index.min.js"></script>
 
   ```
 
@@ -97,7 +100,6 @@
    ```typescript
     // Typescript Sample
     import { AI21 } from "@officialyenum/ai21";
-    import { ISummarizeResponse, ISummaryBody } from '@officialyenum/ai21/lib/cjs/types/library';
    ```
 2. Common JS
    ```javascript
@@ -357,7 +359,8 @@
   19 passing (69ms)
 
 - In each test, I use chai assertions to check that the method behaves as expected, based on the inputs and the stubbed behavior of axios.post.
-
+### Playground
+-   Please click [here](https://yenum21.vercel.app/) to see how i implemented this package in a React Application hosted on [vercel](https://vercel.com)
 
 ### Documentation
 -   Please click [here](https://www.github.com/officialyenum/ai21/#README.md) to read

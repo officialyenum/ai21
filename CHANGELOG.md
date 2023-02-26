@@ -1,10 +1,10 @@
-#### 1.1.4-beta (2023-02-25)
+#### 1.2.0 (2023-02-26)
 
 ##### Other Changes
 
 * **summarize:**  added New Test Case and Bug Fiixes ([7c68689](https://github.com/officialyenum/ai21/commit/7c6868972c685440d1815a2fc7c34b0934acf284))
-
 - ✍🏻 UPDATE(summarize): wrote test cases for summarize text less than 10000 characters
+- 1.1.4-beta
 - 🐞 FIX(commonjs import and type issue with create react app fix):
 - 1.1.3-beta
 
