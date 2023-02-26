@@ -42,6 +42,7 @@
     -   [Deployment](#deployment)
     -   [Limitations](#limitations)
 -   [Contribute](#contribute)
+-   [Issues](#issues)
 -   [Support](#support)
 -   [License](#license)
 
@@ -382,7 +383,7 @@ Thank you 😄
 - Issue Tracker: https://www.github.com/officialyenum/ai21/issues
 - Source Code: https://www.github.com/officialyenum/ai21
 
-## Support
+## Issues
 
 If you are having issues, please let me know.
 I have a mailing list located at: 
@@ -390,7 +391,9 @@ hi@yenum.dev,
 oponechukwuyenum@gmail.com, OR 
 oponechukwuyenum@icloud.com
 
-You can also <p><a href="https://www.buymeacoffee.com/yenum"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="yenum" /></a></p><br><br> 
+## Support
+
+<p><a href="https://www.buymeacoffee.com/yenum"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="yenum" /></a></p><br><br> 
 
 
 ## License
